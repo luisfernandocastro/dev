@@ -511,13 +511,10 @@
 						processData: false,
 						contentType: false
 					}).done(function(resp){
-							if(resp == 1){
-								targetForm.find('input').val('');
-								targetForm.find('textarea').val('');
-								errroTarget.html('<p style="color:green;">El correo ha sido enviado exitosamente</p>');
-							}else{
-								errroTarget.html('<p style="color:red;">Algo salió mal, por favor inténtalo de nuevo más tarde.</p>');
-							}
+						targetForm.find('input, textarea').val('');
+						errroTarget.html('<p style="color:green;">El correo ha sido enviado exitosamente!!</p>');
+					}).fail(function(){
+						errroTarget.html('<p style="color:red;">Algo salió mal, por favor inténtalo de nuevo más tarde.</p>');
 					});
 				}
 			});
